@@ -10,19 +10,28 @@ const Pokedex = () => {
     const trainer = useSelector(state => state.trainer)
     const [pokemons, setPokemons] = useState([])
     const [pokemonSearch, setPokemonSearch] = useState('')
-    
+    const [pokemonType, setPokemonType] = useState([])
+
 
     const navigate = useNavigate()
 
 
     useEffect(() => {
         axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
+
+        axios.get(" https://pokeapi.co/api/v2/type/").then(res => setPokemonType(res.data.results))
     }, [])
-   
-    
+
    
 
-    //console.log(pokemonsType.species?.name)
+    //console.log(pokemonType)
+
+    const filterPokemon = e => {
+
+        axios.get(e.target.value).then(res => (setPokemons(res.data?.pokemon?.url)))
+    }
+
+
     const search = () => {
         navigate(`/pokedex/${pokemonSearch}`)
     }
@@ -43,22 +52,30 @@ const Pokedex = () => {
                     <button className='btn' onClick={search}>Buscar</button>
                 </div>
 
-                <select className='navbar-select'>
-                   
-                   
-                    <option value="">
-                        pokemon1
-                    </option>
+                <select className='navbar-select' onChange={filterPokemon}>
+                    {
+                        pokemonType.map(type => (
+                            <option value={type.url} key={type.url}>
+                                {type.name}
+                            </option>
+
+
+                        ))
+                    }
+
+
+
                 </select>
             </div>
 
 
-            <div className="pokemons">
+            <div className="pokemons" >
+
                 {
                     pokemons.map(pokemon => (
-                        <li key={pokemon.url}>
-                            < PokemonsList pokemon={pokemon} />
-                        </li>
+
+                        < PokemonsList pokemonUrl={pokemon.url !== undefined ? pokemon.url : pokemon} key={pokemon.url} />
+
 
 
                     ))

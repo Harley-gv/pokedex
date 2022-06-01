@@ -1,0 +1,27 @@
+.details-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#img {
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 25%;
+    height: 25%;
+    border: solid;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    outline: none;
+    border: none;
+    
+}
+
+h1 {
+    color: #D93F3F;
+}
+
+p {
+    color: #E32227;
+}

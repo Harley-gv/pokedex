@@ -3,20 +3,21 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PokemonsList.css'
 
-const PokemonsList = ({ pokemon }) => {
-    const [url, setPokemonsUrl] = useState({})
+const PokemonsList = ({ pokemonUrl }) => {
+    const [pokemon, setPokemon] = useState({})
     const navigate = useNavigate() 
 
     useEffect(() => {
-        axios.get(pokemon.url).then(res => setPokemonsUrl(res.data))
-    }, [pokemon])
+        axios.get(pokemonUrl).then(res => setPokemon(res.data))
+    }, [pokemonUrl])
 
+    //console.log(pokemonUrl)
     
     return (
         
-            <div className="card" onClick={() => navigate(`/pokedex/${url.name}`)} > 
+            <div className="card" onClick={() => navigate(`/pokedex/${pokemon.name}`)} > 
                 <h2>{pokemon.name}</h2>
-                <img src={url.sprites?.front_default} alt="" />
+                <img src={pokemon.sprites?.front_default} alt="" />
             </div>
 
 
