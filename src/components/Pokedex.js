@@ -17,8 +17,8 @@ const Pokedex = () => {
 
 
     useEffect(() => {
-        axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
-
+        // axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
+        axios.get("https://pokeapi.co/api/v2/pokemon").then(res => setPokemons(res.data.results))
         axios.get(" https://pokeapi.co/api/v2/type/").then(res => setPokemonType(res.data.results))
     }, [])
 
@@ -28,7 +28,7 @@ const Pokedex = () => {
 
     const filterPokemon = e => {
 
-        axios.get(e.target.value).then(res => (setPokemons(res.data?.pokemon?.url)))
+        axios.get(e.target.value).then(res => (setPokemons(res.data.pokemon)))
     }
 
 
@@ -74,7 +74,7 @@ const Pokedex = () => {
                 {
                     pokemons.map(pokemon => (
 
-                        < PokemonsList pokemonUrl={pokemon.url} />
+                        < PokemonsList pokemonUrl={pokemon.url !== undefined ? pokemon.url : pokemon.pokemon.url} key={pokemon.url} />
 
 
 

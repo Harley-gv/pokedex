@@ -17,14 +17,10 @@ const PokedexDetail = () => {
 
     return (
         <div>
-            {/* <h1>{pokemon.name}</h1>
-            <img src={pokemon.sprites?.front_shiny_female} alt="" id='img'/>
-            <p>peso: {pokemon.weight}</p>
-            <p>experiencia: {pokemon.base_experience}</p>
-            <p>habilidad Principal: {pokemon.abilities[0].ability?.name}</p> */}
             <h1>{pokemonInfo.name}</h1>
             <img src={pokemonInfo.sprites?.front_default} alt="" id='img'/>
             <h2>experiencia: {pokemonInfo.base_experience}</h2>
+            {/* <h2>stat: {pokemonInfo.stats[0].stat?.name}</h2> */}
         </div>
     );
 };
