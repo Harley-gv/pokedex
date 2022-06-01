@@ -74,7 +74,7 @@ const Pokedex = () => {
                 {
                     pokemons.map(pokemon => (
 
-                        < PokemonsList pokemonUrl={pokemon.url !== undefined ? pokemon.url : pokemon} key={pokemon.url} />
+                        < PokemonsList pokemonUrl={pokemon.url} />
 
 
 

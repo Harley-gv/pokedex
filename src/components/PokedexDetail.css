@@ -18,10 +18,12 @@
     
 }
 
-h1 {
+h1 , h2{
     color: #D93F3F;
+    text-align: center;
 }
 
 p {
     color: #E32227;
+    text-align: center;
 }
