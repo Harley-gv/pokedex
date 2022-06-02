@@ -11,6 +11,21 @@ const Pokedex = () => {
     const [pokemons, setPokemons] = useState([])
     const [pokemonSearch, setPokemonSearch] = useState('')
     const [pokemonType, setPokemonType] = useState([])
+    const [page, setPage] = useState(1)
+
+    const pokemonNumbers = 5
+
+    const lastIndex = pokemonNumbers * page
+    const firstIndex = lastIndex - pokemonNumbers
+    const pokemonPaginated = pokemons.slice(firstIndex, lastIndex)
+
+    const lastPage = Math.ceil(pokemons.length / pokemonNumbers)
+
+    const numberPage = []
+
+    for (let i = 1; i <= lastPage; i++) {
+        numberPage.push(i)
+    }
 
 
     const navigate = useNavigate()
@@ -22,7 +37,7 @@ const Pokedex = () => {
         axios.get(" https://pokeapi.co/api/v2/type/").then(res => setPokemonType(res.data.results))
     }, [])
 
-   
+
 
     //console.log(pokemonType)
 
@@ -68,11 +83,23 @@ const Pokedex = () => {
                 </select>
             </div>
 
+            <div className="pages">
+                    <button onClick={() => setPage(page - 1)} disabled={page === 1}>prev</button>
+
+                    {
+                        numberPage.map(number => (
+                            <button onClick={() => setPage(number)}>{number}</button>
+                        ))
+                    }
+
+                    <button onClick={() => setPage(page + 1)} disabled={page === lastPage}>next</button>
+                </div>
+
 
             <div className="pokemons" >
 
                 {
-                    pokemons.map(pokemon => (
+                    pokemonPaginated?.map(pokemon => (
 
                         < PokemonsList pokemonUrl={pokemon.url !== undefined ? pokemon.url : pokemon.pokemon.url} key={pokemon.url} />
 
@@ -81,6 +108,8 @@ const Pokedex = () => {
                     ))
                 }
             </div>
+
+            
 
         </div>
 

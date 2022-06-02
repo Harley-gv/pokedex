@@ -47,3 +47,26 @@ h1 {
     font-weight: 300;
     text-align: center;
 }
+
+.pages {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+    padding: 00.5rem;
+    text-align: center;
+}
+
+.pages button {
+  margin: 0.3rem;
+  border: none;
+  background-color: #DD1A1A;
+  color: aliceblue;
+  border-radius: 20%;
+  width: 3em;
+  height: 2em;
+}
+
+.pages button:hover {
+    color: #DD1A1A;
+    background-color: darkgrey;
+}
