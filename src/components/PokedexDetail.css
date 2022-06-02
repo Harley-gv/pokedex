@@ -1,10 +1,16 @@
 .details-container {
-    text-align: center;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 1em;
+}
+.skills {
+    display: flex;
 }
 
+.skills h3 {
+    margin: 0.5em;
+}
 #img {
     margin-left: 35%;
     margin-right: 35%;
@@ -15,8 +21,11 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
     outline: none;
     border: none;
+    object-fit: cover;
     
 }
+
+
 
 h1 , h2{
     color: #D93F3F;

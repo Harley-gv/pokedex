@@ -13,7 +13,7 @@ const Pokedex = () => {
     const [pokemonType, setPokemonType] = useState([])
     const [page, setPage] = useState(1)
 
-    const pokemonNumbers = 5
+    const pokemonNumbers = 20
 
     const lastIndex = pokemonNumbers * page
     const firstIndex = lastIndex - pokemonNumbers
@@ -32,8 +32,9 @@ const Pokedex = () => {
 
 
     useEffect(() => {
-        // axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
-        axios.get("https://pokeapi.co/api/v2/pokemon").then(res => setPokemons(res.data.results))
+        //para mostrar todos los pokemos desabilitar comentario de la linea 36
+        //axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
+        axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=300").then(res => setPokemons(res.data.results))
         axios.get(" https://pokeapi.co/api/v2/type/").then(res => setPokemonType(res.data.results))
     }, [])
 
