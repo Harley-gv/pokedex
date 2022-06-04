@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './PokedexDetail.css'
+import headerlogo from '../img/header-logo.png'
 
 const PokedexDetail = () => {
     const [pokemonInfo, setPokemonInfo] = useState([])
@@ -16,19 +17,28 @@ const PokedexDetail = () => {
 
 
     return (
-        <div>
-            <h1>{pokemonInfo.name}</h1>
-            <img src={pokemonInfo.sprites?.other?.dream_world.front_default} alt="" id='img' />
-            <h1># {pokemonInfo.id}</h1>
+        <div className='container'>
+            <img src={headerlogo} alt="logo" className='header' />
 
-            <div className="details-container">
-                <h2>Peso: {pokemonInfo.weight}</h2>
-                <h2>Altura: {pokemonInfo.height}</h2>
-                <h2>Experiencia: {pokemonInfo.base_experience}</h2>
-                <h2 className='skills'>Habilidades: {
-                    pokemonInfo.abilities?.map(skills => (
-                        <h3>{skills.ability?.name}</h3>
-                    ))}</h2>
+
+            <div className="pokedemon-Details">
+                <img src={pokemonInfo.sprites?.other?.dream_world.front_default} alt="" id='img' />
+
+                <div className="details-container">
+                    <h2 className='number-id'># {pokemonInfo.id}</h2>
+                    <h2>{pokemonInfo.name}</h2>
+                    <p>Peso: {pokemonInfo.weight}</p>
+                    <p>Altura: {pokemonInfo.height}</p>
+                    <p>Experiencia: {pokemonInfo.base_experience}</p>
+                    <h2>Habilidades:</h2>
+                    <div className="skills">
+                        {
+                            pokemonInfo.abilities?.map(skills => (
+                                <p>{skills.ability?.name}</p>
+                            ))}
+                    </div>
+                </div>
+
             </div>
 
         </div>

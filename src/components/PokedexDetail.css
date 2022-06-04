@@ -1,38 +1,75 @@
-.details-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 1em;
-}
-.skills {
-    display: flex;
+.header {
+    width: 30%;
+    height: auto;
+    margin: 1rem;
 }
 
-.skills h3 {
-    margin: 0.5em;
+.container {
+    text-align: center;
+
 }
+
+
+.pokedemon-Details {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 230px);
+    gap: 20px;
+    justify-content: space-around;
+    text-align: center;
+    border: none;
+    border-radius: 2rem;
+    margin: 2rem;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.details-container {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(178.92deg, #7EC6C5 0.92%, #ABDAC6 47.96%, #CAE099 99.08%);
+    border: none;
+    border-radius: 2rem;
+}
+
+
+
+.number-id {
+   border: none;
+   margin-left: 40%;
+   margin-right: 40%;  
+   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+   border-radius: 2rem; 
+}
+
+.skills {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    opacity: 90%;
+    border: none;
+    border-radius: 2rem;
+    margin: 1rem;
+}
+
 #img {
-    margin-left: 35%;
-    margin-right: 35%;
-    width: 25%;
-    height: 25%;
-    border: solid;
-    background: #FFFFFF;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: linear-gradient(178.92deg, #7EC6C5 0.92%, #ABDAC6 47.96%, #CAE099 99.08%);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
     outline: none;
     border: none;
-    object-fit: cover;
-    
+    padding: 0.2rem;
+    margin-left: 5px;
 }
 
 
-
-h1 , h2{
+h1,
+h2 {
     color: #D93F3F;
     text-align: center;
 }
 
 p {
-    color: #E32227;
+    color: #302F2F;
     text-align: center;
 }

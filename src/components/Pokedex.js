@@ -32,9 +32,8 @@ const Pokedex = () => {
 
 
     useEffect(() => {
-        //para mostrar todos los pokemos desabilitar comentario de la linea 36
-        //axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
-        axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=300").then(res => setPokemons(res.data.results))
+        //para mostrar todos los pokemos modificar offset=0&limit=1126.
+        axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
         axios.get(" https://pokeapi.co/api/v2/type/").then(res => setPokemonType(res.data.results))
     }, [])
 
@@ -86,12 +85,12 @@ const Pokedex = () => {
 
             <div className="pages">
                     <button onClick={() => setPage(page - 1)} disabled={page === 1}>prev</button>
-
+{/* 
                     {
                         numberPage.map(number => (
                             <button onClick={() => setPage(number)}>{number}</button>
                         ))
-                    }
+                    } */}
 
                     <button onClick={() => setPage(page + 1)} disabled={page === lastPage}>next</button>
                 </div>
