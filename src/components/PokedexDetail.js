@@ -26,8 +26,8 @@ const PokedexDetail = () => {
                 <h2>Altura: {pokemonInfo.height}</h2>
                 <h2>Experiencia: {pokemonInfo.base_experience}</h2>
                 <h2 className='skills'>Habilidades: {
-                    pokemonInfo.abilities.map(skills => (
-                        <h3>{skills.ability.name}</h3>
+                    pokemonInfo.abilities?.map(skills => (
+                        <h3>{skills.ability?.name}</h3>
                     ))}</h2>
             </div>
 
