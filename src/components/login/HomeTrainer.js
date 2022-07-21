@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { changeTrainer } from '../store/slices/trainer.slice';
+import { changeTrainer } from '../../store/slices/trainer.slice';
 import { useDispatch } from 'react-redux';
-import logo from '../img/logo.png'
+import logo from '../../img/logo.png'
 import './HomeTrainer.css';
 
 const HomeTrainer = () => {

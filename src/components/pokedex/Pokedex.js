@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import headerlogo from '../img/header-logo.png'
+import headerlogo from '../../img/header-logo.png'
 import './Pokedex.css'
 import { useSelector } from 'react-redux'
+import swal from 'sweetalert';
 import axios from 'axios';
-import PokemonsList from './PokemonsList';
+import PokemonsList from '../pokemonList/PokemonsList';
 import { useNavigate } from 'react-router-dom';
 
 const Pokedex = () => {
@@ -32,14 +33,14 @@ const Pokedex = () => {
 
 
     useEffect(() => {
-        //para mostrar todos los pokemos modificar offset=0&limit=1126.
+        //para mostrar solo 20 pokemons modificar offset=0&limit=20.
         axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126").then(res => setPokemons(res.data.results))
         axios.get(" https://pokeapi.co/api/v2/type/").then(res => setPokemonType(res.data.results))
     }, [])
 
 
 
-    //console.log(pokemonType)
+    console.log(pokemons)
 
     const filterPokemon = e => {
 
@@ -48,7 +49,11 @@ const Pokedex = () => {
 
 
     const search = () => {
-        navigate(`/pokedex/${pokemonSearch}`)
+        if (pokemonSearch !== '') {
+            navigate(`/pokedex/${pokemonSearch}`)
+        } else {
+            swal('para buscar un pokemon este campo no puede estar vacio')
+        }
     }
 
     return (
@@ -84,16 +89,10 @@ const Pokedex = () => {
             </div>
 
             <div className="pages">
-                    <button onClick={() => setPage(page - 1)} disabled={page === 1}>prev</button>
-{/* 
-                    {
-                        numberPage.map(number => (
-                            <button onClick={() => setPage(number)}>{number}</button>
-                        ))
-                    } */}
+                <button onClick={() => setPage(page - 1)} disabled={page === 1}>prev</button>
 
-                    <button onClick={() => setPage(page + 1)} disabled={page === lastPage}>next</button>
-                </div>
+                <button onClick={() => setPage(page + 1)} disabled={page === lastPage}>next</button>
+            </div>
 
 
             <div className="pokemons" >
@@ -109,7 +108,7 @@ const Pokedex = () => {
                 }
             </div>
 
-            
+
 
         </div>
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './PokedexDetail.css'
-import colors from '../colors.json'
+import colors from '../../colors.json'
 
 const PokedexDetail = () => {
     const [pokemonInfo, setPokemonInfo] = useState([])
@@ -28,7 +28,7 @@ const PokedexDetail = () => {
 
     return (
         <div className='Tittle-pokemon'>
-            <button onClick={() => navigate('/pokedex/')} className='btn'>Go to Pokedex</button>
+            <button onClick={() => navigate('/pokedex/')} className='btn'>ir a Pokedex</button>
             <div className='detail-container'>
                 <div className='info-container-detail'>
 

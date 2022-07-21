@@ -1,9 +1,9 @@
-import HomeTrainer from './components/HomeTrainer';
+import HomeTrainer from './components/login/HomeTrainer';
 import './App.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Pokedex from './components/Pokedex';
-import PokedexDetail from './components/PokedexDetail';
-import PrivateRoutes from './components/PrivateRoutes';
+import Pokedex from './components/pokedex/Pokedex';
+import PokedexDetail from './components/pokedexDetail/PokedexDetail';
+import PrivateRoutes from './components/privateRoutes/PrivateRoutes';
 
 
 function App() {
